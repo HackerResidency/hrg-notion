@@ -50,31 +50,39 @@ const results = (
 
       try {
         const [githubUser, twitterUser] = await Promise.all([
-          github.request('GET /users/{username}', {
-            username: githubUsername
-          }),
+          github
+            .request('GET /users/{username}', {
+              username: githubUsername
+            })
+            .catch(() => undefined),
 
-          twitter.getUserByUsername({
-            username: twitterUsername
-          })
+          twitter
+            .getUserByUsername({
+              username: twitterUsername
+            })
+            .catch(() => undefined)
         ])
 
         // console.log({ github: githubUser.data, twitter: twitterUser })
 
         const properties: any = {}
 
-        if (twitterUser.followers_count) {
+        if (twitterUser?.followers_count) {
           properties['X Followers'] = {
             type: 'number',
             number: twitterUser.followers_count
           }
         }
 
-        if (githubUser.data.followers !== undefined) {
+        if (githubUser?.data.followers !== undefined) {
           properties['GH Followers'] = {
             type: 'number',
             number: githubUser.data.followers
           }
+        }
+
+        if (!Object.keys(properties).length) {
+          return
         }
 
         await notion.pages.update({
