@@ -11,7 +11,7 @@ const databaseId = process.env.NOTION_DATABASE_ID!
 const rows: DatabaseObjectResponse[] = []
 let cursor: string | undefined
 
-console.warn('loading database from notion...')
+console.warn('loading db rows from notion...')
 
 do {
   const current = await notion.databases.query({
@@ -40,8 +40,6 @@ do {
   cursor = current.next_cursor
 } while (true)
 
-// console.log(JSON.stringify(db, null, 2))
-// console.log(rows.length, 'rows', JSON.stringify(rows, null, 2))
 console.warn(`processing ${rows.length} rows...\n`)
 
 const results = (
