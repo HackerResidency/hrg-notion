@@ -11,10 +11,10 @@
 
 # Hacker Residency Group <!-- omit from toc -->
 
-> A new type of experimental Hacker Residency with the first cohort taking place in Da Nang, Vietnam during the month of November, 2025.
+> HRG is a residency for ambitious hackers.
 
-See the [site](https://hackerresidencygroup.com) for details. 💪
+See [hackerresidencygroup.com](https://hackerresidencygroup.com) for details. 💪
 
 ## License
 
-MIT © [Travis Fischer](https://x.com/transitive_bs)
+MIT © [HRG](https://x.com/HackerResidency)

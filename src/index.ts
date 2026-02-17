@@ -17,6 +17,7 @@ const rows = await notion.databases.query({
   database_id: databaseId,
   filter: {
     property: 'X Followers',
+    // rty: 'Status',
     number: {
       is_empty: true
     }
