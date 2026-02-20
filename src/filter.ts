@@ -39,11 +39,9 @@ const results = (
 
       const twitterUrl: string = (page.properties.Twitter as any)!.url
       const twitterUsername = getTwitterUsername(twitterUrl)
-
       const xUrl = `https://x.com/${twitterUsername}`
       console.log(xUrl)
       await open(xUrl)
-
       return xUrl
 
       // await notion.pages.update({
